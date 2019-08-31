@@ -188,23 +188,7 @@ public class PacemakerConsoleService {
 	    }
   }
 
-  @Command(description = "Distance Leader Board: list summary distances of all friends, sorted longest to shortest")
-  public void distanceLeaderBoard() {
-	  Optional<User> user = Optional.fromNullable(loggedInUser);
-	    if (user.isPresent()) {
-	      console.renderLeaderBoard(paceApi.distanceLeaderBoard(user.get().id));
-	    }
-  }
-
-  // Excellent Commands
-
-  @Command(description = "Distance Leader Board: distance leader board refined by type")
-  public void distanceLeaderBoardByType(@Param(name = "byType: type") String type) {
-	  Optional<User> user = Optional.fromNullable(loggedInUser);
-	    if (user.isPresent()) {
-	      console.renderLeaderBoard(paceApi.distanceLeaderBoardByType(user.get().id, type));
-	    }
-  }
+   // Excellent Commands
 
   @Command(description = "Message All Friends: send a message to all friends")
   public void messageAllFriends(@Param(name = "message") String message) {
@@ -212,15 +196,6 @@ public class PacemakerConsoleService {
 	    if (user.isPresent()) {
 	      console.println(paceApi.messageAllFriends(user.get().id, message));
 	    }
-  }
-
-  @Command(description = "Location Leader Board: list sorted summary distances of all friends in named location")
-  public void locationLeaderBoard(@Param(name = "longitude") String longitude, @Param(name = "latitude") String latitude) {
-	  Optional<User> user = Optional.fromNullable(loggedInUser);
-	    if (user.isPresent()) {
-	    	console.renderLocationLeaderBoardEntry(paceApi.locationLeaderBoard(user.get().id, longitude, latitude));
-	    	
-	    }  
   }
 
   // Outstanding Commands

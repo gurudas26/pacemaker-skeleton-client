@@ -7,9 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import models.Activity;
-import models.LeaderBoardEntry;
 import models.Location;
-import models.LocationLeaderBoardEntry;
 import models.Message;
 import models.User;
 import retrofit2.Call;
@@ -79,14 +77,6 @@ interface PacemakerInterface
   @POST("/users/{id}/message")
   Call<String> messageAllFriends(@Path("id") String id, @Body String message);
   
-  @GET("/users/{id}/leaderboard")
-  Call<List<LeaderBoardEntry>> distanceLeaderBoard(@Path("id") String id);
-  
-  @GET("/users/{id}/leaderboard/longitude/{longitude}/latitude/{latitude}")
-  Call<List<LocationLeaderBoardEntry>> locationLeaderBoard(@Path("id") String id, @Path("longitude") String longitude, @Path("latitude") String latitude);
-  
-  @GET("/users/{id}/leaderboard/{type}")
-  Call<List<LeaderBoardEntry>> distanceLeaderBoardByType(@Path("id") String id, @Path("type") String type);
 }
 
 public class PacemakerAPI {
@@ -344,41 +334,4 @@ public class PacemakerAPI {
 	    }
 	    return status;
 	  }
-  
-  public Collection<LeaderBoardEntry> distanceLeaderBoard(String id) {
-	    Collection<LeaderBoardEntry> board = null;
-	    try {
-	      Call<List<LeaderBoardEntry>> call = pacemakerInterface.distanceLeaderBoard(id);
-	      Response<List<LeaderBoardEntry>> response = call.execute();
-	      board = response.body();
-	    } catch (Exception e) {
-	      System.out.println(e.getMessage());
-	    }
-	    return board;
-	  }
-  
-  public Collection<LeaderBoardEntry> distanceLeaderBoardByType(String id, String type) {
-	    Collection<LeaderBoardEntry> board = null;
-	    try {
-	      Call<List<LeaderBoardEntry>> call = pacemakerInterface.distanceLeaderBoardByType(id, type);
-	      Response<List<LeaderBoardEntry>> response = call.execute();
-	      board = response.body();
-	    } catch (Exception e) {
-	      System.out.println(e.getMessage());
-	    }
-	    return board;
-	  }
-  
-  public Collection<LocationLeaderBoardEntry> locationLeaderBoard(String id, String longitude, String latitude) {
-	    Collection<LocationLeaderBoardEntry> board = null;
-	    try {
-	      Call<List<LocationLeaderBoardEntry>> call = pacemakerInterface.locationLeaderBoard(id, longitude, latitude);
-	      Response<List<LocationLeaderBoardEntry>> response = call.execute();
-	      board = response.body();
-	    } catch (Exception e) {
-	      System.out.println(e.getMessage());
-	    }
-	    return board;
-	  }
-	
 }

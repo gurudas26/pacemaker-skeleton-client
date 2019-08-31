@@ -8,9 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import models.Activity;
-import models.LeaderBoardEntry;
 import models.Location;
-import models.LocationLeaderBoardEntry;
 import models.User;
 
 public class AsciiTableParser extends Parser {
@@ -76,32 +74,8 @@ public class AsciiTableParser extends Parser {
       System.out.println("not found");
     }
   }
-  
-  public void renderDistanceLeaderBoard(List<LeaderBoardEntry> locations) {
-	    if (locations != null) {
-	      if (!locations.isEmpty()) {
-	        IASCIITableAware asciiTableAware = new CollectionASCIITableAware<LeaderBoardEntry>(locations,
-	            "firstname",
-	            "lastname", "email","distance","act");
-	        System.out.println(ASCIITable.getInstance().getTable(asciiTableAware));
-	      }
-	      System.out.println("ok");
-	    } else {
-	      System.out.println("not found");
-	    }
-	  }
-  
-  public void renderLocationLeaderBoardEntry(List<LocationLeaderBoardEntry> locations) {
-	    if (locations != null) {
-	      if (!locations.isEmpty()) {
-	        IASCIITableAware asciiTableAware = new CollectionASCIITableAware<LocationLeaderBoardEntry>(locations,
-	            "firstname",
-	            "lastname", "email","act","place");
-	        System.out.println(ASCIITable.getInstance().getTable(asciiTableAware));
-	      }
-	      System.out.println("ok");
-	    } else {
-	      System.out.println("not found");
-	    }
-	  }
 }
+  
+  
+  
+ 

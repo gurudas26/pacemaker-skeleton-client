@@ -3,9 +3,7 @@ package parsers;
 import java.util.Collection;
 import java.util.List;
 import models.Activity;
-import models.LeaderBoardEntry;
 import models.Location;
-import models.LocationLeaderBoardEntry;
 import models.Message;
 import models.User;
 
@@ -38,12 +36,4 @@ public class Parser {
   public void renderMessages(Collection<Message> messages) {
     System.out.println(messages.toString());
   }
-  
-  public void renderLeaderBoard(Collection<LeaderBoardEntry> entries) {
-    System.out.println(entries.toString());
-  }
-  
-  public void renderLocationLeaderBoardEntry(Collection<LocationLeaderBoardEntry> entries) {
-	    System.out.println(entries.toString());
-	  }
 }

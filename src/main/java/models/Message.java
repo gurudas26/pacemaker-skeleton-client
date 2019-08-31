@@ -12,20 +12,20 @@ public class Message {
 	
 	public String sender;
 	public String message;
-	public String reciever;
+	public String receiever;
 	  
 	public Message(String reciever, String sender, String message) {
-		  this.reciever = reciever;
+		  this.receiever = reciever;
 		  this.sender = sender;
 		  this.message = message;
 	}
 		  
 	public String getReciever() {
-		return reciever;
+		return receiever;
 	}
 
 	public void setReciever(String reciever) {
-		this.reciever = reciever;
+		this.receiever = reciever;
 	}
 
 	public String getSender() {
@@ -47,7 +47,7 @@ public class Message {
 	      final Message other = (Message) obj;
 	      return Objects.equal(sender, other.sender)
 	          && Objects.equal(message, other.message)
-	          && Objects.equal(reciever, other.reciever);
+	          && Objects.equal(receiever, other.receiever);
 	    } else {
 	      return false;
 	    }
@@ -57,13 +57,13 @@ public class Message {
 	  public String toString() {
 	    return toStringHelper(this).addValue(sender)
 	        .addValue(message)
-	        .addValue(reciever)
+	        .addValue(receiever)
 	        .toString();
 	  }
 
 	  @Override
 	  public int hashCode() {
-	    return Objects.hashCode(this.sender, this.message, this.reciever);
+	    return Objects.hashCode(this.sender, this.message, this.receiever);
 	  }
 
 }
